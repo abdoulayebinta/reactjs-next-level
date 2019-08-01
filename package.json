@@ -5,6 +5,12 @@
   "author": "Abdoulaye Binta Bah",
   "license": "MIT",
   "scripts": {
-    "start": "node ./index.js"
+    "start": "node ./index.js",
+    "build": "./node_modules/.bin/babel ./index.js -o bundle.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5"
   }
 }
