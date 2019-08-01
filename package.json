@@ -1,0 +1,10 @@
+{
+  "name": "react-recipes",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Abdoulaye Binta Bah",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./index.js"
+  }
+}
