@@ -1,31 +1,41 @@
 import React from 'react';
 import recipes from '../static/images/recipes.jpg';
 
-const RecipeDetail = (props) => (
-    <div style={props.style}> 
-        <h1>Creamy Halloween Cupcakes</h1>
-        <img src={recipes} />
-        <div>
-            <span>Dessert</span>
-            <span>50 cal</span>
+const RecipeDetail = (props) => {
+    if (!props.recipe) {
+        return (
+            <p style={props.style}>
+                Please select a recipe to see the detail.
+            </p>
+        );     
+    }
+
+    return (
+        <div style={props.style}> 
+            <h1>{props.recipe.name}</h1>
+            <img src={props.recipe.image} />
+            <div>
+                <span>{props.recipe.category}</span>
+                <span>{props.recipe.calories}</span>
+            </div>
+            <h3>Ingredients</h3>
+            <ul>
+                {props.recipe.ingredients.map(ingredient => (
+                    <li key={ingredient}>
+                        {ingredient}
+                    </li>
+                ))}
+            </ul>
+            <h3>Steps</h3>
+            <ol>
+                {props.recipe.steps.map(step => (
+                    <li key={step}>
+                        {step}
+                    </li>
+                ))}
+            </ol>
         </div>
-        <h3>Ingredients</h3>
-        <ul>
-            <li>1 package of flour food cake mix</li>
-            <li>1 Cup of water</li>
-            <li>3 eggs</li>
-            <li>1/3 cup vegetable oil</li>
-        </ul>
-        <h3>Steps</h3>
-        <ol>
-            <li>Preheat oven to 350 degrees F</li>
-            <li>Combine vegetable mix, water, eggs, and oil in a large bowl</li>
-            <li>Bake in the preheated oven</li>
-            <li>Remove vegetable from the oven</li>
-            <li>Apply some cream</li>
-        </ol>
-    </div>
-    
-);
+    );
+};
 
 export default RecipeDetail;
